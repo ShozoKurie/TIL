@@ -3,6 +3,7 @@
 非ログインユーザーからのアクセスがあった場合にログイン画面へ遷移させることができる。
 - ログイン画面以外への遷移を指定する場合、authenticate_user!メソッドを編集することはできないため、新しくメソッドを定義する必要がある。
 ex.
+```ruby
 class ItemsController < ApplicationController
   before_action :require_login, only: [:new]
   
@@ -14,5 +15,5 @@ class ItemsController < ApplicationController
     end
   end
 end
-
+```
 - current_userメソッドはサインインしているユーザーを取得するメソッド。ここではunlessを使うことで、サインインしているユーザーが取得できなければメソッドを実行するという条件を記述している。
